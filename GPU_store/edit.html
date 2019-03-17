@@ -1,0 +1,102 @@
+<html>
+	<head>
+		<title>Welcome to your Gpu store</title>
+			<meta charset="utf-8"/>
+			<style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #50B2FF;
+      color: white;
+    }
+
+
+</style>
+
+	</head>
+		<body> 
+		<div class="wrapper" >
+			<h1>Welcome to the application you can logout<a href="{{ logout_url }}"> here </a></h1>
+			
+			
+				<!-- from that will be used to permit the user to add a new address -->
+					<div class="form-2">
+					{% if error %}
+					<p>{{error}}</p>
+					{% endif %}
+					<form class="form-2"  action="/edit_gpu/{{ gpu.name }}" method="post">
+					 <table>
+						<thead>
+							<tr>
+       						 	<th>
+						Name: <input type="text" name="name" value='{{ gpu.name }}'/>
+						</th>
+						<br/>
+       						 <th>
+						
+						Manufacturer: <input type="text" name="manufacturer" value='{{ gpu.manufacturer }}'/>
+						</th>
+						<br/>
+       						 <th>
+						Date issued: <input type="date" name="dateissued" value='{{ gpu.dateissued }}'/>
+						</th>
+						<br/>
+		
+		                 <!-- form for the new user address -->
+		                 <th>
+						Geometry shader: <input type="checkbox" name="geometryShader" {{ 'checked' if  gpu.geometryShader else '' }} /> </th>
+						<br/>
+						<th>
+						Tesselation Shader :<input type="checkbox" name="tesselationShader" {{ 'checked' if  gpu.tesselationShader else '' }} />
+						</th>
+						<br/>
+						<th>
+						ShaderInt16 :<input type="checkbox" name="shaderInt16" {{ 'checked' if  gpu.shaderInt16 else '' }} />
+						</th>
+						<br/>
+						<th>
+						SparseBinding :<input type="checkbox" name="sparseBinding" {{ 'checked' if  gpu.sparseBinding else '' }} />
+						</th>
+						<br/>
+						<th>
+						TextureCompressionETC2 :<input type="checkbox" name="textureCompressionETC2" {{ 'checked' if gpu.textureCompressionETC2 else '' }} />
+						</th>
+						<br/>
+						<th>
+						vertexPipelineStoresAndAtomics :<input type="checkbox" name="vertexPipelineStoresAndAtomics" {{ 'checked' if  gpu.vertexPipelineStoresAndAtomics else '' }} /><br/>
+						</th>
+						<th>
+						<input type="hidden" name="key" value='{{ gpu.name }}'/>
+						<input type="submit" name="button" value="Update"/>
+						</th>
+						</tr>
+   							 </thead>
+					</form>
+					
+					</div>
+					</div>
+					</table>
+					
+					</body>
+					</html>
+
+				
+					
+						
+					

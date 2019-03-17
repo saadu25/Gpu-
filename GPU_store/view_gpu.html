@@ -1,0 +1,107 @@
+<html>
+	<head>
+	<style>
+	
+	 
+			div#container{
+			background-color:
+			}
+			.wrapper {
+					  margin-right: auto; /* 1 */
+					  margin-left:  auto; /* 1 */
+					
+					  max-width: 960px; /* 2 */
+					
+					  padding-right: 10px; /* 3 */
+					  padding-left:  10px; /* 3 */
+					  }
+							body {
+				  background-color:;
+				  padding: 0;
+				  font-family: sans-serif;
+				  
+				}
+				
+				h1 {
+				  color: green;
+				  text-align: left;
+				}
+				
+				p {
+				  font-family: verdana;
+				  font-size: 20px;
+				}
+				.form-2{
+						font: 95% Arial, Helvetica, sans-serif;
+						max-width: 400px;
+						margin: 0; auto;
+						padding: 20px;
+						background: #F7F7F7;
+					}
+					
+				
+	
+	
+	
+			table,  td 
+			{
+			  border: 1px solid black;
+			  text-align: "left"
+			  padding-top: 12px;
+			      padding-bottom: 12px;
+			      background-color: ;
+			      color:;
+			  
+			}
+			</style>
+		<title>Welcome to your Gpu store</title>
+			<meta charset="utf-8"/>
+	</head>
+		<body> 
+		<div class="wrapper">
+		<div id="container">
+		
+		
+			<h1 style= "text-align:center;">Welcome to the application 
+			<h3 Style= "text-align:right;"> you can logout<a href="{{ logout_url }}"> here </a></h1>
+			
+			
+					
+					<br/>
+					
+					<!-- the list of users that are joined to this gpu -->
+						<table style="width:50%" >	
+						<tr align= "justify">
+						<th>Name</th> <td>:{{ gpu.name }}</td>
+						</tr>
+						<tr align= "justify">
+						<th>Manufacturer</th><td>:{{ gpu.manufacturer }}</td>
+						</tr>
+						<tr align= "justify">
+						<th>Date issued</th><td>:{{ gpu.dateissued }}</td>
+						</tr>
+						<tr align= "justify">
+						<th>Geometry shader</th><td>:{{ gpu.geometryShader}}</td>
+						</tr>
+						<tr align= "justify">
+						<th>TesselationShader</th><td>:{{ gpu.tesselationShader}}</td>
+						<tr align= "justify">
+						<th>ShaderInt16</th><td>:{{ gpu.shaderInt16}}</td>
+						</tr>
+						<tr align= "justify"><th>Sparse Binding</th><td>:{{ gpu.sparseBinding}}</td></tr>
+						<tr align= "justify"><th>TextureCompressionETC2</th><td>:{{ gpu.textureCompressionETC2}}</td></tr>
+						<tr align= "justify">
+						<th>vertexPipelineStoresAndAtomics </th><td>:{{ gpu.vertexPipelineStoresAndAtomics}}</tr>
+							</table>
+						
+						</div>
+					    <a href="/edit_gpu/{{ gpu.name }}">Edit</a><br/>
+					    </div>
+					
+					</body>
+					</html>
+
+				
+					
+					
+					

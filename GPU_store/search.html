@@ -1,0 +1,143 @@
+<html>
+<head>
+
+
+<title>Welcome, Please Add a GPU</title>
+    <meta charset="utf-8"/>
+    <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .wrapper {
+					  margin-right: auto; /* 1 */
+					  margin-left:  auto; /* 1 */
+					
+					  max-width: 960px; /* 2 */
+					
+					  padding-right: 10px; /* 3 */
+					  padding-left:  10px; /* 3 */
+					  }
+
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #2F4F4F ;
+      color: white;
+    }
+
+
+</style>
+
+</head>
+<body>
+ <div class="wrapper" >
+<h1><b><i>Welcome to the GPU models </b></i></h1> <br/>
+<h3 Style= "text-align:right;"><b><i>You can logout <a href="/"> here</a></i></b></h3>
+<br/>
+<br/>
+<!-- from that will be used to permit the user to add a new address -->
+
+<!--Print the output using a for loop-->
+
+<table id="customers">
+    <thead>
+    <tr>
+        <th>
+            Gpu Name
+        </th>
+        <th>
+            Manufacturer Name
+        </th>
+        <th>
+            Date issued
+        </th>
+
+        <form action="/search" method="post">
+        <th>
+            <input type="checkbox" name="search_geometryShader"
+            />
+
+            Geometry Shader
+        </th>
+
+        <th>
+            <input type="checkbox" name="search_tesselationShader">
+            Tesselation Shader
+        </th>
+        <th>
+            <input type="checkbox" name="search_shaderInt16" >
+            ShaderInt16
+        </th>
+        <th>
+            <input type="checkbox" name="search_shaderBinding">
+            Sparse Binding
+        </th>
+        <th>
+            <input type="checkbox" name="search_textureCompression" >
+            Texture CompressionETC2
+        </th>
+        <th>
+            <input type="checkbox" name="search_vertexPipelineStoresAndAtomics">
+            Vertex Pipeline Stores And Atomics
+        </th>
+        <th>
+             <input type="submit" name="button" value="Submit"/>
+        </th>
+</form>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in gpu_user %}
+    <tr>
+        <td> <a ="/edit?name={{ i.name}}">{{ i.name}} </a>  </td>
+        <td>
+            {{ i.manufacturer }}
+        </td>
+        <td>
+            {{ i.dateissued }}
+        </td>
+        <td>
+            {{ i.geometryShader }}
+        </td>
+        <td>
+            {{ i.tesselationShader }}
+        </td>
+        <td>
+            {{ i.shaderInt16}}
+        </td>
+        <td>
+            {{ i.sparseBinding }}
+        </td>
+        <td>
+            {{ i.textureCompressionETC2 }}
+        </td>
+        <td>
+           {{ i.vertexPipelineStoresAndAtomics }}
+        </td>
+    </tr>
+    {% endfor %}
+
+    <div style="color: red">
+    {% if error %}
+    <p> {{ error }}</p>
+    {% endif %}
+
+    </div>
+    </tbody>
+
+</table>
+</div>
+  </body>
+  </html>

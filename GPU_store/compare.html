@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>
+        Update GPU
+    </title>
+
+</head>
+<body>
+
+
+<table>
+      <tr>
+      <th >Gpu no</th>
+      <th>Gpu Name </th>
+      <th >Manufacturer</th>
+      <th >Dateissued</th>
+      <th >Gpu Features</th>
+
+   </tr>
+
+{% for i in range(value) %}
+   {% for i in compare[i] %}
+
+
+   <tr>
+
+
+      <td>geometryShader:{{i.geometryShader}}
+      tesselationShader:{{i.tesselationShader}}
+      shaderInt16:{{i.shaderInt16 }}
+      sparseBinding:{{i.sparseBinding}}
+      textureCompressionETC2:{{i.textureCompressionETC2}}
+      vertexPipelineStoresAndAtomics:{{i.vertexPipelineStoresAndAtomics}}
+
+   </tr>
+   {% endfor %}
+{% endfor %}
+
+
+</table>
+</body>
+</html>

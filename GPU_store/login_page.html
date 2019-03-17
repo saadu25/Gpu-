@@ -1,0 +1,180 @@
+<html>
+	<head>
+		<title>Welcome to your Gpu store</title>
+			<meta charset="utf-8"/>
+			<style> 
+			 
+			
+			div#container{
+			background-color:
+			}
+							body {
+				  background-color:;
+				  padding: 0;
+				  font-family: sans-serif;
+				  
+				}
+				.wrapper {
+					  margin-right: auto; /* 1 */
+					  margin-left:  auto; /* 1 */
+					
+					  max-width: 960px; /* 2 */
+					
+					  padding-right: 10px; /* 3 */
+					  padding-left:  10px; /* 3 */
+} 
+				
+				
+				}
+				
+				h1 {
+				  color: green;
+				  text-align: left;
+				}
+				
+				p {
+				  font-family: verdana;
+				  font-size: 20px;
+				}
+				.form-2{
+						font: 95% Arial, Helvetica, sans-serif;
+						max-width: 2000px;
+						margin: 0; auto;
+						padding: 20px;
+						background: #F7F7F7;
+					}
+					#customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #2F4F4F;
+      color: white;
+    }
+					
+				</style>
+		</head>
+		<body> 
+		
+		<div id= "container">
+		<div class="wrapper" >
+			<h1 style= "text-align:center;">Welcome to the GPU STORE
+			<h3 Style= "text-align:right;">you can logout<a href="{{ logout_url }}"> here </a></h3></h1>
+			<h3> Additional GPU details </h3>
+			<i><a href="/search">Here</a></i>
+			
+			
+				<!-- from that will be used to permit the user to add a new address -->
+					<div class="form-2">
+					{% if error %}
+					<p>{{error}}</p>
+					{% endif %}
+					<form class="form-2"  action="/add_gpu" method="post">
+					<table  border="">
+						<tr>
+							<td>Name: </td>
+							<td><input type="text" name="name" placeholder = "gpu name:"/></td>
+						</tr>
+						
+						<tr>
+							<td>Manufacturer:</td> 
+							<td><input type="text" name="manufacturer" placeholder = "manufacturer"/></td>
+						</tr>
+						
+						<tr>
+							<td>Date issued:</td>
+							 <td><input type="date" name="dateissued" placeholder ="" /></td>
+						</tr>
+						
+					</table>
+					<table   id="customers">
+		               <th>
+            <input type="checkbox" name="search_geometryShader"
+            />
+
+            Geometry Shader
+        </th>
+
+        <th>
+            <input type="checkbox" name="search_tesselationShader">
+            Tesselation Shader
+        </th>
+        <th>
+            <input type="checkbox" name="search_shaderInt16" >
+            ShaderInt16
+        </th>
+        <th>
+            <input type="checkbox" name="search_shaderBinding">
+            Sparse Binding
+        </th>
+        <th>
+            <input type="checkbox" name="search_textureCompression" >
+            Texture CompressionETC2
+        </th>
+        <th>
+            <input type="checkbox" name="search_vertexPipelineStoresAndAtomics">
+            Vertex Pipeline Stores And Atomics
+        </th>
+        <th>
+             
+        
+						
+						<input type="submit" name="button" value="Add Gpu"/>
+						</th>
+				</table>		
+					</form>
+					
+					</div>
+					<br/>
+					
+					<!-- the list of users that are joined to this gpu -->
+					
+					{% for i in gpu %}
+						<!-- 
+						
+						Gpu {{ loop.index }} <br/>
+						Name :{{ i.name }}<br/>
+						Manufacturer:{{ i.manufacturer }}<br/>
+						Date issued:{{ i.dateissued }}<br/>
+						Geometry shader:{{ i.geometryShader}}<br/>
+						TesselationShader:{{ i.tesselationShader}}<br/>
+						ShaderInt16 :{{ i.ShaderInt16}}<br/>
+						Sparse Binding:{{ i.SparseBinding}}<br/>
+						TextureCompressionETC2:{{ i.TextureCompressionETC2}}<br/>
+						vertexPipelineStoresAndAtomics :{{ i.vertexPipelineStoresAndAtomics}}
+						
+						-->
+						<table>
+						<a href="/view_gpu/{{ i.name }}">{{ i.name }}</a><br/>
+						
+						
+						
+						
+					    </table>
+					    <!-- <form action="/view_gpu" method="post">
+							<input type="submit" name="button" value="{{ i.name }}"/>
+						</form><br/> -->
+					{% endfor %}
+					</div>
+					</div>
+					</body>
+					</html>
+
+				
+					
+					
+					
